@@ -158,7 +158,6 @@ struct ContentView: View {
                 }
                 
             }else if selectedTab == 3 {
-                
                 categorias(tiemposPrincipal: $tiemposPrincipal,
                            categoriaSeleccionada:$categoriaSeleccionada,
                            nombreSeleccionada:$nombreSeleccionada,
@@ -173,6 +172,7 @@ struct ContentView: View {
                 }
             }
             
+            Spacer()
             //TAB BAR PERSONALIZADA :)
             CustomTabBar(selectedTab: $selectedTab)
             

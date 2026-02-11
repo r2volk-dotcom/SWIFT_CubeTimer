@@ -8,7 +8,7 @@ struct EstadisticasCronometroView: View {
         
         HStack{
             
-                VStack(alignment:.leading ){
+            VStack(alignment:.leading ){
                     let listaTiempo = obtenerTiempos(sesion: sesionActual)
                     let mean = media(tiempos: obtenerTiempos(sesion: sesionActual), cantidad: listaTiempo.count == 0 ? 1 : listaTiempo.count)
                     let peor = obtenerMejorPeor(listaTiempos: listaTiempo, tipo: "peor")
@@ -22,7 +22,6 @@ struct EstadisticasCronometroView: View {
             .padding(10)
             .background(Color(.cyan).opacity(0.3))
             .cornerRadius(12)
-            .padding(.bottom,-13)
             
             
             VStack(alignment: .center) {
@@ -47,7 +46,6 @@ struct EstadisticasCronometroView: View {
             .padding(.vertical, 8)
             .background(Color(.gray).opacity(0.25))
             .cornerRadius(12)
-            .padding(.bottom, -10)
             
             
             VStack(alignment: .leading) {
@@ -65,7 +63,6 @@ struct EstadisticasCronometroView: View {
             .padding(10)
             .background(Color(.red).opacity(0.3))
             .cornerRadius(12)
-            .padding(.bottom, -13)
 
         }
     }
