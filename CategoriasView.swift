@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct categorias: View {
+struct CategoriasView: View {
     
     @Binding var tiemposPrincipal: [Sesion]
     @Binding var categoriaSeleccionada: String

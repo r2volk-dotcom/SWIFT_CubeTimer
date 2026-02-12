@@ -183,3 +183,14 @@ func obtenerTiempos(sesion: Sesion) -> [Double] {
     }
     return tiempos
 }
+
+
+func ordentiemposMostrar(orden: String, catSele: String, nomSele: String, tPrincipal: [Sesion]) -> [Tiempo] {
+    if orden == "Fecha" {
+        return obtenerTiemposRecorrer(categoria: catSele, nombreCategoria: nomSele, listaSesiones: tPrincipal).reversed()
+    } else if orden == "Ascendente" {
+        return ordenarLista(obtenerTiemposRecorrer(categoria: catSele, nombreCategoria: nomSele, listaSesiones: tPrincipal))
+    } else {
+        return ordenarLista(obtenerTiemposRecorrer(categoria: catSele, nombreCategoria: nomSele, listaSesiones: tPrincipal)).reversed()
+    }
+}

@@ -3,7 +3,7 @@ import SwiftUI
 import SwiftData
 
 @main
-struct pruebasApp: App {
+struct TimeCuber: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

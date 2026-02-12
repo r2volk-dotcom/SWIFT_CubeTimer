@@ -104,7 +104,7 @@ struct ContentView: View {
     }
 
     func vistaListaTiempos() -> some View {
-        listatimes(tiemposRecorrer: $tiemposRecorrer,
+        ListaTiemposView(tiemposRecorrer: $tiemposRecorrer,
                    categoriaSeleccionada:$categoriaSeleccionada,
                    nombreSeleccionada:$nombreSeleccionada,
                    idActual: $idActual,
@@ -126,7 +126,7 @@ struct ContentView: View {
     }
     
     func vistaCategorias() -> some View {
-        categorias(tiemposPrincipal: $tiemposPrincipal,
+        CategoriasView(tiemposPrincipal: $tiemposPrincipal,
                    categoriaSeleccionada:$categoriaSeleccionada,
                    nombreSeleccionada:$nombreSeleccionada,
                    idActual: $idActual)
