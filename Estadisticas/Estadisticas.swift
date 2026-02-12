@@ -24,42 +24,37 @@ struct estadisticas: View {
     
     var body: some View {
         
-        //TITULO
-        Text("\(sesionActual.nombre) 📊")
-            .foregroundColor(.teal)
-            .bold()
-            .font(.custom("Avenir", size: 38))
-            .padding(.vertical,-6)
-        
-        
-        ScrollView{
-    
-            //Tiempos Basicos
-            TiemposBasicosView(actual: actual)
-            
-            
-            //Tiempos Actuales
-            TiemposActualesView(actual: actual)
-            
-            
-            //Tiempos PB
-            TiemposPBView(
-                actual: actual,
-                sesionActual: sesionActual)
-            
-            
-            //Desviacion
-            Chart(grafica(valores: actual)) { i in
-                LineMark(x: .value("fecha",i.fecha),
-                         y: .value("dato", i.value))
+        NavigationStack {
+            VStack {
+                
+                ScrollView {
+                    
+                    TiemposBasicosView(actual: actual)
+                    
+                    TiemposActualesView(actual: actual)
+                    
+                    TiemposPBView(
+                        actual: actual,
+                        sesionActual: sesionActual
+                    )
+                    
+                    Chart(grafica(valores: actual)) { i in
+                        LineMark(
+                            x: .value("fecha", i.fecha),
+                            y: .value("dato", i.value)
+                        )
+                    }
+                    .padding(20)
+                    .background(Color.purple.opacity(0.2))
+                    .cornerRadius(20)
+                    .foregroundColor(.purple)
+                    .padding(20)
+                    .padding(.top, -5)
+                }
             }
-            .padding(20)
-            .background(Color(.purple).opacity(0.2))
-            .cornerRadius(20)
-            .foregroundColor(.purple)
-            .padding(20)
-            .padding(.top,-5)
+            .navigationTitle("\(sesionActual.nombre) 📊")
             
+            .navigationBarTitleDisplayMode(.large) // .inline si lo quieres pequeño
         }
     }
 }

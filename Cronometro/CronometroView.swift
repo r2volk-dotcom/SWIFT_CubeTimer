@@ -65,7 +65,7 @@ struct CronometroView: View {
                     .padding(.top,15)
             }
             
-            
+            //CRONOMETRO
             TimerAreaView(
                 stateTimer: $timerState,
                 registrarNuevoTiempo: registrarNuevoTiempo,

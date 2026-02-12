@@ -11,7 +11,7 @@ struct TimerAreaView: View {
         
         ZStack{
             Rectangle()
-                .fill(Color.red)
+                .fill(Color.clear)
                 .contentShape(Rectangle())
                 .frame(maxHeight: .infinity)
                 .gesture(

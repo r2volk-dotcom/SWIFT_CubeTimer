@@ -69,8 +69,8 @@ struct categorias: View {
                 self.mostrarFormulario = true
                 print(mostrarFormulario)// Mostrar el formulario para agregar sesión
             }) {
-                Image(systemName: "plus.circle.fill")
-                    .font(.title2)
+                Image(systemName: "plus")
+                    .font(.title3)
                     .foregroundColor(.blue)
             })
             .sheet(isPresented: $mostrarFormulario) {
