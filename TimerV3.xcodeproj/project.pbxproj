@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C7738F32F3D03A700B7F833 /* ModeloTiempos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7738F22F3D03A700B7F833 /* ModeloTiempos.swift */; };
 		B61584FA2B92C6B200C20F12 /* pruebasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61584F92B92C6B200C20F12 /* pruebasApp.swift */; };
 		B61584FC2B92C6B200C20F12 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61584FB2B92C6B200C20F12 /* ContentView.swift */; };
 		B61584FE2B92C6B400C20F12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61584FD2B92C6B400C20F12 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C7738F22F3D03A700B7F833 /* ModeloTiempos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeloTiempos.swift; sourceTree = "<group>"; };
 		B61584F62B92C6B200C20F12 /* TimerV3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimerV3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61584F92B92C6B200C20F12 /* pruebasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pruebasApp.swift; sourceTree = "<group>"; };
 		B61584FB2B92C6B200C20F12 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -28,7 +30,6 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		8C9F11E52F3B640100BC5C97 /* Estadisticas */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Estadisticas; sourceTree = "<group>"; };
 		8C9F11FD2F3B6A0800BC5C97 /* Funciones */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Funciones; sourceTree = "<group>"; };
-		8C9F12132F3B6A8000BC5C97 /* Modelos */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Modelos; sourceTree = "<group>"; };
 		8C9F12162F3B6B1500BC5C97 /* Cronometro */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Cronometro; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -47,7 +48,6 @@
 			isa = PBXGroup;
 			children = (
 				8C9F12162F3B6B1500BC5C97 /* Cronometro */,
-				8C9F12132F3B6A8000BC5C97 /* Modelos */,
 				8C9F11FD2F3B6A0800BC5C97 /* Funciones */,
 				8C9F11E52F3B640100BC5C97 /* Estadisticas */,
 				B63D3A602BA1800100039F39 /* listatimes.swift */,
@@ -68,6 +68,7 @@
 		B61584F82B92C6B200C20F12 /* pruebas */ = {
 			isa = PBXGroup;
 			children = (
+				8C7738F22F3D03A700B7F833 /* ModeloTiempos.swift */,
 				B61584F92B92C6B200C20F12 /* pruebasApp.swift */,
 				B61584FB2B92C6B200C20F12 /* ContentView.swift */,
 				B61584FD2B92C6B400C20F12 /* Assets.xcassets */,
@@ -102,7 +103,6 @@
 			fileSystemSynchronizedGroups = (
 				8C9F11E52F3B640100BC5C97 /* Estadisticas */,
 				8C9F11FD2F3B6A0800BC5C97 /* Funciones */,
-				8C9F12132F3B6A8000BC5C97 /* Modelos */,
 				8C9F12162F3B6B1500BC5C97 /* Cronometro */,
 			);
 			name = TimerV3;
@@ -164,6 +164,7 @@
 				B61584FA2B92C6B200C20F12 /* pruebasApp.swift in Sources */,
 				B661C8BA2BA2698800DCC382 /* categorias.swift in Sources */,
 				B63D3A612BA1800100039F39 /* listatimes.swift in Sources */,
+				8C7738F32F3D03A700B7F833 /* ModeloTiempos.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
