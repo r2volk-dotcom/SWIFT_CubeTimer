@@ -26,17 +26,14 @@ struct ContentView: View {
     
     
     func vistaCronometro() -> some View {
-        CronometroView(sesionActual:$vm.sesionActual,
-                       tiemposPrincipal: $vm.tiemposPrincipal,
-                       scrambleActual: $vm.scrambleActual,
-                       tiemposRecorrer: $vm.tiemposRecorrer,
-                       guardarSesiones: {vm.guardarSesiones()}
-        ).onAppear {
-            vm.scrambleActual = scrambleMostrar(categoria: vm.categoriaSeleccionada)
-            vm.tiemposRecorrer = obtenerTiemposRecorrer(categoria: vm.categoriaSeleccionada, nombreCategoria: vm.nombreSeleccionada, listaSesiones: vm.tiemposPrincipal).reversed()
-            vm.sesionActual = obtenerSesionActual(categoria: vm.categoriaSeleccionada, nombreCategoria: vm.nombreSeleccionada, listaSesiones: vm.tiemposPrincipal)
-            vm.idActual = vm.sesionActual.id
-            vm.cargarSesiones()}
+        CronometroView(vm: vm)
+            .onAppear {
+                vm.scrambleActual = scrambleMostrar(categoria: vm.categoriaSeleccionada)
+                vm.tiemposRecorrer = obtenerTiemposRecorrer(categoria: vm.categoriaSeleccionada, nombreCategoria: vm.nombreSeleccionada, listaSesiones: vm.tiemposPrincipal).reversed()
+                vm.sesionActual = obtenerSesionActual(categoria: vm.categoriaSeleccionada, nombreCategoria: vm.nombreSeleccionada, listaSesiones: vm.tiemposPrincipal)
+                vm.idActual = vm.sesionActual.id
+                vm.cargarSesiones()
+            }
     }
 
     func vistaListaTiempos() -> some View {
@@ -47,7 +44,7 @@ struct ContentView: View {
                 nombreCategoria: vm.nombreSeleccionada,
                 listaSesiones: vm.tiemposPrincipal).reversed()
             vm.cargarSesiones()
-            vm.actualizarVista()
+            vm.actualizarVista()//esto usualmente no va
         }
     }
     

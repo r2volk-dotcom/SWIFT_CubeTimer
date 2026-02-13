@@ -11,7 +11,6 @@ class RubikViewModel: ObservableObject {
     @Published var idActual: UUID? = nil //id de la session actual
     @Published var ordenActual = Orden.fecha
     
-    
     @Published var categoriaSeleccionada: String = UserDefaults.standard.string(forKey: "categoriaSeleccionada") ?? "3x3" {
         didSet {
             // Cuando esta variable cambie, guardamos el nuevo valor en la memoria del teléfono
@@ -19,7 +18,6 @@ class RubikViewModel: ObservableObject {
         }
     }
         
-        // VARIABLE 2: El Nombre de la Sesión (Standard, etc)
     @Published var nombreSeleccionada: String = UserDefaults.standard.string(forKey: "nombreSeleccionada") ?? "Standard" {
         didSet {
             // Lo mismo: si cambia el nombre, lo guardamos
@@ -27,8 +25,6 @@ class RubikViewModel: ObservableObject {
         }
     }
     
-    
-    // CAMBIO 2: Inicializador (init)
     init() {
         cargarSesiones()
         actualizarVista()
@@ -143,14 +139,75 @@ class RubikViewModel: ObservableObject {
              )
          }
     
-
     
-    // Una pequeña ayuda para generar nuevo scramble manualmente cuando quieras
-    /*func nuevoScramble() {
-        scrambleActual = scrambleMostrar(categoria: categoriaSeleccionada)
+    func registrarNuevoTiempo(timerState: inout TimerState) {
+        
+        if let inicio = timerState.tiempoInicio {
+            timerState.tiempoTranscurrido = Date().timeIntervalSince(inicio)
+            }
+            
+        timerState.tiempoInicio = nil
+        
+        guard timerState.tiempoTranscurrido >= 0.01 else { return }
+        
+        if let index = tiemposPrincipal.firstIndex(where: { $0.id == sesionActual.id }) {
+            tiemposPrincipal[index].tiempos.append(
+                Tiempo(tiempo: timerState.tiempoTranscurrido, scramble: scrambleActual, fecha: Date())
+            )
+            tiemposRecorrer = obtenerTiemposRecorrer(
+                categoria: sesionActual.categoria,
+                nombreCategoria: sesionActual.nombre,
+                listaSesiones: tiemposPrincipal
+            ).reversed()
+            sesionActual = tiemposPrincipal[index]
+            guardarSesiones()
+        }
+        scrambleActual = scrambleMostrar(categoria: sesionActual.categoria)
     }
-     */
+    
+    
+    //inout significa que la función puede modificar la variable que le pasás.
+    func borrarUltimoTiempo(timerState: inout TimerState) {
+        
+        if(obtenerTiempos(sesion: sesionActual).count != 0){
+            timerState.estaCorriendo = false
+            timerState.tiempoTranscurrido = 0
+            
+            for i in tiemposPrincipal {
+                if i.id == sesionActual.id {
+                    if let index = tiemposPrincipal.firstIndex(where: { $0.id == sesionActual.id }) {
+                        tiemposPrincipal[index].tiempos.removeLast()
+                        
+                        // Forzar actualización de tiemposRecorrer
+                        tiemposRecorrer = obtenerTiemposRecorrer(
+                            categoria: sesionActual.categoria,
+                            nombreCategoria: sesionActual.nombre,
+                            listaSesiones: tiemposPrincipal
+                        ).reversed()
+                        
+                        sesionActual = tiemposPrincipal[index]
+                        
+                        guardarSesiones()
+                    }
+                    break
+                }
+            }
+            
+            scrambleActual = scrambleMostrar(categoria: sesionActual.categoria)
+            timerState.visibilidadPromedios = true
+
+        
+        }
+    }
+    
 }
+
+// Una pequeña ayuda para generar nuevo scramble manualmente cuando quieras
+/*func nuevoScramble() {
+    scrambleActual = scrambleMostrar(categoria: categoriaSeleccionada)
+}
+ */
+
 
 /*
  func vistaCronometro() -> some View {
@@ -167,24 +224,6 @@ class RubikViewModel: ObservableObject {
          cargarSesiones()}
  }
 
- func vistaListaTiempos() -> some View {
-     ListaTiemposView(
-             vm: ListaTiemposViewModel(
-                 tiemposPrincipal: tiemposPrincipal,     // 1. Primer argumento
-                 idActual: idActual,                     // 2. Segundo argumento
-                 categoriaSeleccionada: categoriaSeleccionada, // 3. Tercer argumento
-                 nombreSeleccionada: nombreSeleccionada,       // 4. Cuarto argumento
-                 guardarSesiones: guardarSesiones        // 5. Sin paréntesis ()
-             ),
-             tiemposPrincipal: $tiemposPrincipal,
-             guardarSesiones: guardarSesiones,
-             // 6. Argumento requerido por la View
-         )
-     .onAppear {
-             tiemposRecorrer = obtenerTiemposRecorrer(categoria: categoriaSeleccionada, nombreCategoria: nombreSeleccionada, listaSesiones: tiemposPrincipal).reversed()
-         cargarSesiones()
-     }
- }
  
  func vistaEstadisticas() -> some View {
      estadisticas(sesionActual: $sesionActual
