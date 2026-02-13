@@ -9,7 +9,7 @@ class RubikViewModel: ObservableObject {
     @Published var tiemposRecorrer: [Tiempo] = []
     @Published var scrambleActual: String = ""
     @Published var idActual: UUID? = nil //id de la session actual
-    @Published var ordenActual = "Fecha"
+    @Published var ordenActual = Orden.fecha
     
     
     @Published var categoriaSeleccionada: String = UserDefaults.standard.string(forKey: "categoriaSeleccionada") ?? "3x3" {
@@ -120,15 +120,6 @@ class RubikViewModel: ObservableObject {
         guardarSesiones()
     }
     
-    func cambiarOrden(orden: String) {
-        ordenActual = orden
-        tiemposRecorrer = ordentiemposMostrar(
-            orden: ordenActual,
-            catSele: categoriaSeleccionada,
-            nomSele: nombreSeleccionada,
-            tPrincipal: tiemposPrincipal
-        )
-    }
     
     func actualizarDatos(nuevosTiempos: [Sesion]) {
             self.tiemposPrincipal = nuevosTiempos
@@ -138,7 +129,22 @@ class RubikViewModel: ObservableObject {
                 listaSesiones: self.tiemposPrincipal
             ).reversed()
         }
-        
+    
+    
+     func cambiarOrden(_ orden: Orden){
+         
+         ordenActual = orden
+         
+             tiemposRecorrer = ordentiemposMostrar(
+                 orden: orden,
+                 catSele: categoriaSeleccionada,
+                 nomSele: nombreSeleccionada,
+                 tPrincipal: tiemposPrincipal
+             )
+         }
+    
+
+    
     // Una pequeña ayuda para generar nuevo scramble manualmente cuando quieras
     /*func nuevoScramble() {
         scrambleActual = scrambleMostrar(categoria: categoriaSeleccionada)
