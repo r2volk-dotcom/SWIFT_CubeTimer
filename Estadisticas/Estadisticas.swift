@@ -10,7 +10,6 @@ struct Item: Identifiable{
 struct estadisticas: View {
     
     @Binding var sesionActual: Sesion
-    @Binding var valor:Int
     
     
     var actual: [Double] {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8C7738F32F3D03A700B7F833 /* ModeloTiempos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7738F22F3D03A700B7F833 /* ModeloTiempos.swift */; };
+		8C7739842F3DD55F00B7F833 /* RubikAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7739832F3DD55F00B7F833 /* RubikAppViewModel.swift */; };
 		B61584FA2B92C6B200C20F12 /* TimeCuber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61584F92B92C6B200C20F12 /* TimeCuber.swift */; };
 		B61584FC2B92C6B200C20F12 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61584FB2B92C6B200C20F12 /* ContentView.swift */; };
 		B61584FE2B92C6B400C20F12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61584FD2B92C6B400C20F12 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		8C7738F22F3D03A700B7F833 /* ModeloTiempos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeloTiempos.swift; sourceTree = "<group>"; };
+		8C7739832F3DD55F00B7F833 /* RubikAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubikAppViewModel.swift; sourceTree = "<group>"; };
 		B61584F62B92C6B200C20F12 /* TimerV3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimerV3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61584F92B92C6B200C20F12 /* TimeCuber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCuber.swift; sourceTree = "<group>"; };
 		B61584FB2B92C6B200C20F12 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 		B61584F82B92C6B200C20F12 /* TimeCuber */ = {
 			isa = PBXGroup;
 			children = (
+				8C7739832F3DD55F00B7F833 /* RubikAppViewModel.swift */,
 				8C7738F22F3D03A700B7F833 /* ModeloTiempos.swift */,
 				B61584F92B92C6B200C20F12 /* TimeCuber.swift */,
 				B61584FB2B92C6B200C20F12 /* ContentView.swift */,
@@ -161,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B61584FC2B92C6B200C20F12 /* ContentView.swift in Sources */,
+				8C7739842F3DD55F00B7F833 /* RubikAppViewModel.swift in Sources */,
 				B61584FA2B92C6B200C20F12 /* TimeCuber.swift in Sources */,
 				B661C8BA2BA2698800DCC382 /* CategoriasView.swift in Sources */,
 				8C7738F32F3D03A700B7F833 /* ModeloTiempos.swift in Sources */,

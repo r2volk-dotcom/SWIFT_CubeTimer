@@ -144,7 +144,6 @@ func ordenarLista(_ lista: [Tiempo]) -> [Tiempo] {
 
 
 
-
 func obtenerTiemposRecorrer(categoria: String, nombreCategoria: String, listaSesiones: [Sesion]) -> [Tiempo] {
     var tiempos: [Tiempo] = []  // Inicializamos como array vacío
     
