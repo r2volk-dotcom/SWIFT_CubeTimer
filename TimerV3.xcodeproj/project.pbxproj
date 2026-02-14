@@ -8,24 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		8C7738F32F3D03A700B7F833 /* ModeloTiempos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7738F22F3D03A700B7F833 /* ModeloTiempos.swift */; };
+		8C7739842F3DD55F00B7F833 /* RubikAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7739832F3DD55F00B7F833 /* RubikAppViewModel.swift */; };
 		B61584FA2B92C6B200C20F12 /* TimeCuber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61584F92B92C6B200C20F12 /* TimeCuber.swift */; };
 		B61584FC2B92C6B200C20F12 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61584FB2B92C6B200C20F12 /* ContentView.swift */; };
 		B61584FE2B92C6B400C20F12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61584FD2B92C6B400C20F12 /* Assets.xcassets */; };
 		B61585012B92C6B400C20F12 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61585002B92C6B400C20F12 /* Preview Assets.xcassets */; };
-		B661C8BA2BA2698800DCC382 /* CategoriasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B661C8B92BA2698800DCC382 /* CategoriasView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8C7738F22F3D03A700B7F833 /* ModeloTiempos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeloTiempos.swift; sourceTree = "<group>"; };
+		8C7739832F3DD55F00B7F833 /* RubikAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubikAppViewModel.swift; sourceTree = "<group>"; };
 		B61584F62B92C6B200C20F12 /* TimerV3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimerV3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61584F92B92C6B200C20F12 /* TimeCuber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCuber.swift; sourceTree = "<group>"; };
 		B61584FB2B92C6B200C20F12 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B61584FD2B92C6B400C20F12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B61585002B92C6B400C20F12 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B661C8B92BA2698800DCC382 /* CategoriasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriasView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		8C5871A82F403C010045EBCD /* Categorias */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Categorias; sourceTree = "<group>"; };
 		8C7739792F3DAB2800B7F833 /* ListaTiempos */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ListaTiempos; sourceTree = "<group>"; };
 		8C9F11E52F3B640100BC5C97 /* Estadisticas */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Estadisticas; sourceTree = "<group>"; };
 		8C9F11FD2F3B6A0800BC5C97 /* Funciones */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Funciones; sourceTree = "<group>"; };
@@ -46,11 +47,11 @@
 		B61584ED2B92C6B200C20F12 = {
 			isa = PBXGroup;
 			children = (
+				8C5871A82F403C010045EBCD /* Categorias */,
 				8C7739792F3DAB2800B7F833 /* ListaTiempos */,
 				8C9F12162F3B6B1500BC5C97 /* Cronometro */,
 				8C9F11FD2F3B6A0800BC5C97 /* Funciones */,
 				8C9F11E52F3B640100BC5C97 /* Estadisticas */,
-				B661C8B92BA2698800DCC382 /* CategoriasView.swift */,
 				B61584F82B92C6B200C20F12 /* TimeCuber */,
 				B61584F72B92C6B200C20F12 /* Products */,
 			);
@@ -67,6 +68,7 @@
 		B61584F82B92C6B200C20F12 /* TimeCuber */ = {
 			isa = PBXGroup;
 			children = (
+				8C7739832F3DD55F00B7F833 /* RubikAppViewModel.swift */,
 				8C7738F22F3D03A700B7F833 /* ModeloTiempos.swift */,
 				B61584F92B92C6B200C20F12 /* TimeCuber.swift */,
 				B61584FB2B92C6B200C20F12 /* ContentView.swift */,
@@ -100,6 +102,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				8C5871A82F403C010045EBCD /* Categorias */,
 				8C7739792F3DAB2800B7F833 /* ListaTiempos */,
 				8C9F11E52F3B640100BC5C97 /* Estadisticas */,
 				8C9F11FD2F3B6A0800BC5C97 /* Funciones */,
@@ -118,7 +121,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 2620;
 				TargetAttributes = {
 					B61584F52B92C6B200C20F12 = {
 						CreatedOnToolsVersion = 15.2;
@@ -161,8 +164,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B61584FC2B92C6B200C20F12 /* ContentView.swift in Sources */,
+				8C7739842F3DD55F00B7F833 /* RubikAppViewModel.swift in Sources */,
 				B61584FA2B92C6B200C20F12 /* TimeCuber.swift in Sources */,
-				B661C8BA2BA2698800DCC382 /* CategoriasView.swift in Sources */,
 				8C7738F32F3D03A700B7F833 /* ModeloTiempos.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,6 +208,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = S64797XVB4;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -228,6 +232,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 6.0;
@@ -269,6 +274,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = S64797XVB4;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -285,6 +291,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_VERSION = 6.0;
 				VALIDATE_PRODUCT = YES;
@@ -299,7 +306,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TimeCuber/Preview Content\"";
-				DEVELOPMENT_TEAM = S64797XVB4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -333,7 +339,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TimeCuberPreview Content\"";
-				DEVELOPMENT_TEAM = S64797XVB4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
