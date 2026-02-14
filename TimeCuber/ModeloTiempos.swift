@@ -43,3 +43,10 @@ class Tiempo: Codable, Identifiable, Equatable {
                lhs.fecha == rhs.fecha
     }
 }
+
+enum Orden: String, CaseIterable {
+    case fecha = "Fecha"
+    case ascendente = "Ascendente"
+    case descendente = "Descendente"
+}
+

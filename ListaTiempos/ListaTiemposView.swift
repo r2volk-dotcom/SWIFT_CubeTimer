@@ -2,25 +2,18 @@ import SwiftUI
 
 struct ListaTiemposView: View {
     
-    @Binding var tiemposRecorrer: [Tiempo]
-    @Binding var categoriaSeleccionada: String
-    @Binding var nombreSeleccionada: String
-    @Binding var idActual: UUID?
-    @Binding var tiemposPrincipal: [Sesion]
-    
-    var guardarSesiones: () -> Void
+    @ObservedObject var vm: RubikViewModel
+  
     @State var manejo = false
-    @State var idActualTiempo: UUID?
     @State var seguridad = false
-    @State var ordenActual = "Fecha"
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(tiemposRecorrer, id: \.id) { tiempo in
+                ForEach(vm.tiemposRecorrer, id: \.id) { tiempo in
                     TiempoRowView(
                         tiempo: tiempo,
-                        onEliminar: {eliminarTiempoSeleccionado(tiempo:tiempo)})
+                        onEliminar: {vm.eliminarTiempoSeleccionado(tiempo:tiempo)})
                 }
             }.navigationTitle("Tiempos⌛️")
             .navigationBarItems(trailing: Button("",systemImage: "arrow.up.arrow.down.circle",action: {
@@ -30,60 +23,37 @@ struct ListaTiemposView: View {
                 seguridad = true
             }))
                 
-            }.actionSheet(isPresented: $manejo, content: {
-                ActionSheet(title:Text("Orden"),buttons: [
-                    botonOrdenamiento(textoBoton: "Fecha"),
-                    botonOrdenamiento(textoBoton: "Ascendente"),
-                    botonOrdenamiento(textoBoton: "Descendente"),
-                    botonOrdenamiento(textoBoton: "Cancelar")
-                ])
-            })
+            }
+        .onAppear {
+            // Esto asegura que al entrar esté actualizado
+            vm.actualizarDatos(nuevosTiempos: vm.tiemposPrincipal)
+        }
+        .confirmationDialog("Orden",
+                            isPresented: $manejo,
+                            titleVisibility: .visible) {
+            
+            botonOrdenamiento(orden: .fecha)
+            botonOrdenamiento(orden: .ascendente)
+            botonOrdenamiento(orden: .descendente)
+            
+            Button("Cancelar", role: .cancel) { }
+        }
             .alert(isPresented: $seguridad, content: {
                     Alert(title:Text("Eliminar"),
                           message: Text("¿Seguro que quieres eliminar TODOS tus tiempos?"),
                           primaryButton: .default(Text("Aceptar"),action: {
-                        eliminarTodosTiempos()
+                        vm.eliminarTodosTiempos()
                         
                     }),
                           secondaryButton: .destructive(Text("Cancelar")))
                 })
     }
-    
-    func eliminarTodosTiempos(){
-        tiemposRecorrer = []
-        for i in tiemposPrincipal{
-            if i.id == idActual{
-                i.tiempos = []
-            }
-        }
-        guardarSesiones()
-    }
-    
-    func eliminarTiempoSeleccionado(tiempo:Tiempo){
-        for index in tiemposPrincipal.indices {
-            if tiemposPrincipal[index].id == idActual {
-                tiemposPrincipal[index].tiempos.removeAll { $0.id == tiempo.id }
-                tiemposRecorrer = ordentiemposMostrar(orden: ordenActual, catSele: categoriaSeleccionada, nomSele: nombreSeleccionada, tPrincipal: tiemposPrincipal)
-                guardarSesiones()
-                return
-            }
+    func botonOrdenamiento(orden: Orden) -> some View {
+        Button(orden.rawValue) { // el texto visible
+            vm.cambiarOrden(orden) // actualiza según enum
         }
     }
     
-    
-    func botonOrdenamiento(textoBoton:String) -> ActionSheet.Button{
-        return .default(Text(textoBoton)) {
-            ordenActual = textoBoton
-            tiemposRecorrer = ordentiemposMostrar(
-                orden: ordenActual,
-                catSele: categoriaSeleccionada,
-                nomSele: nombreSeleccionada,
-                tPrincipal: tiemposPrincipal
-            )
-        }
-        
-        
-    }
 
 }
 

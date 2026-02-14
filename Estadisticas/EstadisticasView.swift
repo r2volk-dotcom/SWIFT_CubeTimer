@@ -7,14 +7,12 @@ struct Item: Identifiable{
     var fecha: String
 }
 
-struct estadisticas: View {
+struct EstadisticasView: View {
     
-    @Binding var sesionActual: Sesion
-    @Binding var valor:Int
-    
+    @ObservedObject var vm: RubikViewModel
     
     var actual: [Double] {
-        obtenerTiempos(sesion: sesionActual)
+        obtenerTiempos(sesion: vm.sesionActual)
     }
 
     var indiceActual: Int {
@@ -35,7 +33,7 @@ struct estadisticas: View {
                     
                     TiemposPBView(
                         actual: actual,
-                        sesionActual: sesionActual
+                        sesionActual: vm.sesionActual
                     )
                     
                     Chart(grafica(valores: actual)) { i in
@@ -52,7 +50,7 @@ struct estadisticas: View {
                     .padding(.top, -5)
                 }
             }
-            .navigationTitle("\(sesionActual.nombre) 📊")
+            .navigationTitle("\(vm.sesionActual.nombre) 📊")
             
             .navigationBarTitleDisplayMode(.large) // .inline si lo quieres pequeño
         }

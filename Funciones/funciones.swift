@@ -144,7 +144,6 @@ func ordenarLista(_ lista: [Tiempo]) -> [Tiempo] {
 
 
 
-
 func obtenerTiemposRecorrer(categoria: String, nombreCategoria: String, listaSesiones: [Sesion]) -> [Tiempo] {
     var tiempos: [Tiempo] = []  // Inicializamos como array vacío
     
@@ -185,10 +184,10 @@ func obtenerTiempos(sesion: Sesion) -> [Double] {
 }
 
 
-func ordentiemposMostrar(orden: String, catSele: String, nomSele: String, tPrincipal: [Sesion]) -> [Tiempo] {
-    if orden == "Fecha" {
+func ordentiemposMostrar(orden: Orden, catSele: String, nomSele: String, tPrincipal: [Sesion]) -> [Tiempo] {
+    if orden == .fecha {
         return obtenerTiemposRecorrer(categoria: catSele, nombreCategoria: nomSele, listaSesiones: tPrincipal).reversed()
-    } else if orden == "Ascendente" {
+    } else if orden == .ascendente {
         return ordenarLista(obtenerTiemposRecorrer(categoria: catSele, nombreCategoria: nomSele, listaSesiones: tPrincipal))
     } else {
         return ordenarLista(obtenerTiemposRecorrer(categoria: catSele, nombreCategoria: nomSele, listaSesiones: tPrincipal)).reversed()

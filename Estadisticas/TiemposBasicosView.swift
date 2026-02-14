@@ -62,9 +62,6 @@ struct TiemposBasicosView: View {
         .cornerRadius(15)
     }
     
-}
 
-#Preview {
-    ContentView()
+    
 }
-

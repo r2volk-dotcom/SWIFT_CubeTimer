@@ -2,15 +2,15 @@ import SwiftUI
 
 struct EstadisticasCronometroView: View {
     
-    let sesionActual: Sesion
+    @ObservedObject var vm: RubikViewModel
     
     var body: some View {
         
         HStack{
             
             VStack(alignment:.leading ){
-                    let listaTiempo = obtenerTiempos(sesion: sesionActual)
-                    let mean = media(tiempos: obtenerTiempos(sesion: sesionActual), cantidad: listaTiempo.count == 0 ? 1 : listaTiempo.count)
+                let listaTiempo = obtenerTiempos(sesion: vm.sesionActual)
+                let mean = media(tiempos: obtenerTiempos(sesion: vm.sesionActual), cantidad: listaTiempo.count == 0 ? 1 : listaTiempo.count)
                     let peor = obtenerMejorPeor(listaTiempos: listaTiempo, tipo: "peor")
                     let mejor = obtenerMejorPeor(listaTiempos: listaTiempo, tipo: "mejor")
                     Text("Solves: \(listaTiempo.count)")
@@ -25,7 +25,7 @@ struct EstadisticasCronometroView: View {
             
             
             VStack(alignment: .center) {
-                let listaTiempo = obtenerTiempos(sesion: sesionActual)
+                let listaTiempo = obtenerTiempos(sesion: vm.sesionActual)
                 let ultimos5 = Array(listaTiempo.suffix(5))
                 
                 ForEach(0..<min(listaTiempo.count, 5), id: \.self) { index in
@@ -49,10 +49,10 @@ struct EstadisticasCronometroView: View {
             
             
             VStack(alignment: .leading) {
-                let mean3 = media(tiempos: obtenerTiempos(sesion: sesionActual), cantidad: 3)
-                let avg5 = avg(tiempos: obtenerTiempos(sesion: sesionActual), cantidad: 5)
-                let avg12 = avg(tiempos: obtenerTiempos(sesion: sesionActual), cantidad: 12)
-                let avg50 = avg(tiempos: obtenerTiempos(sesion: sesionActual), cantidad: 50)
+                let mean3 = media(tiempos: obtenerTiempos(sesion: vm.sesionActual), cantidad: 3)
+                let avg5 = avg(tiempos: obtenerTiempos(sesion: vm.sesionActual), cantidad: 5)
+                let avg12 = avg(tiempos: obtenerTiempos(sesion: vm.sesionActual), cantidad: 12)
+                let avg50 = avg(tiempos: obtenerTiempos(sesion: vm.sesionActual), cantidad: 50)
                 
                 Text("Mo3: \(mean3 <= 60 ? "\(formatoTiempo(mean3).dropLast())" : "\(formatoTiempo(mean3).dropLast(2))")")
                 Text("Avg5: \(avg5 <= 60 ? "\(formatoTiempo(avg5).dropLast())" : "\(formatoTiempo(avg5).dropLast(2))")")
