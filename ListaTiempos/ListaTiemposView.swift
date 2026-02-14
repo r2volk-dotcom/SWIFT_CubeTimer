@@ -3,10 +3,7 @@ import SwiftUI
 struct ListaTiemposView: View {
     
     @ObservedObject var vm: RubikViewModel
-    
-    //@Binding var tiemposPrincipal: [Sesion]
-    
-    //var guardarSesiones: () -> Void
+  
     @State var manejo = false
     @State var seguridad = false
 

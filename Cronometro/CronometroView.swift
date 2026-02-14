@@ -4,22 +4,13 @@ import UIKit
 struct CronometroView: View {
     
     @ObservedObject var vm: RubikViewModel
-    
-    @State var timerState = TimerState(
-        estaCorriendo: false,
-        estaTocando: false,
-        tiempoInicio:nil,
-        tiempoTranscurrido: 0,
-        visibilidadPromedios: false,
-    )
-    
         
     var body: some View {
 
         VStack(spacing: 10) {
             
             //TITULO DEL CRONOMETRO
-            if !timerState.estaCorriendo{
+            if !vm.timerState.estaCorriendo{
                 HStack{
                     
                     Image(systemName: "trash.fill")
@@ -29,7 +20,7 @@ struct CronometroView: View {
                         .font(.system(size: 23))
                         .padding(.leading,-20)
                         .onTapGesture {
-                            vm.borrarUltimoTiempo(timerState: &timerState)
+                            vm.borrarUltimoTiempo()
                         }
                     
                     Text(" \(vm.sesionActual.nombre) 🍀")
@@ -46,7 +37,7 @@ struct CronometroView: View {
             
             
             //SCRAMBLE
-            if !timerState.estaCorriendo {
+            if !vm.timerState.estaCorriendo {
                 Text(vm.scrambleActual)
                     .font(.system(size: vm.sesionActual.categoria == "4x4" ? 20 :
                                     vm.sesionActual.categoria == "5x5" ? 18 :
@@ -62,19 +53,19 @@ struct CronometroView: View {
             
             //CRONOMETRO
             TimerAreaView(
-                stateTimer: $timerState,
-                registrarNuevoTiempo: { vm.registrarNuevoTiempo(timerState: &timerState) },
+                stateTimer: $vm.timerState,
+                registrarNuevoTiempo: { vm.registrarNuevoTiempo() },
                 formatoTiempo: formatoTiempo)
             
             //ESTADISTICAS (EN LA PARTE INFERIOR)
-            if !timerState.estaCorriendo{
+            if !vm.timerState.estaCorriendo{
                 EstadisticasCronometroView(sesionActual:vm.sesionActual)
             }
         }
         
         .padding(.top,15)
         .padding(.bottom,5)
-        .toolbar(timerState.estaCorriendo ? .hidden : .visible, for: .tabBar)
+        .toolbar(vm.timerState.estaCorriendo ? .hidden : .visible, for: .tabBar)
 
     }
 

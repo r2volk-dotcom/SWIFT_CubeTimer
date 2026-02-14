@@ -27,49 +27,30 @@ struct ContentView: View {
     
     func vistaCronometro() -> some View {
         CronometroView(vm: vm)
-            .onAppear {
-                vm.scrambleActual = scrambleMostrar(categoria: vm.categoriaSeleccionada)
-                vm.tiemposRecorrer = obtenerTiemposRecorrer(categoria: vm.categoriaSeleccionada, nombreCategoria: vm.nombreSeleccionada, listaSesiones: vm.tiemposPrincipal).reversed()
-                vm.sesionActual = obtenerSesionActual(categoria: vm.categoriaSeleccionada, nombreCategoria: vm.nombreSeleccionada, listaSesiones: vm.tiemposPrincipal)
-                vm.idActual = vm.sesionActual.id
-                vm.cargarSesiones()
-            }
+        .onAppear {
+            vm.actualizarVista()
+        }
     }
 
     func vistaListaTiempos() -> some View {
         ListaTiemposView(vm: vm)
         .onAppear {
-            vm.tiemposRecorrer = obtenerTiemposRecorrer(
-                categoria: vm.categoriaSeleccionada,
-                nombreCategoria: vm.nombreSeleccionada,
-                listaSesiones: vm.tiemposPrincipal).reversed()
-            vm.cargarSesiones()
-            vm.actualizarVista()//esto usualmente no va
+            vm.actualizarVista()
         }
     }
     
     func vistaEstadisticas() -> some View {
-        estadisticas(sesionActual: $vm.sesionActual)
+        EstadisticasView(vm: vm)
         .onAppear {
-            vm.sesionActual = obtenerSesionActual(categoria: vm.categoriaSeleccionada, nombreCategoria: vm.nombreSeleccionada, listaSesiones: vm.tiemposPrincipal)
+            vm.actualizarVista()
             
         }
     }
     
     func vistaCategorias() -> some View {
-        CategoriasView(tiemposPrincipal: $vm.tiemposPrincipal,
-                       categoriaSeleccionada:$vm.categoriaSeleccionada,
-                       nombreSeleccionada:$vm.nombreSeleccionada,
-                       idActual: $vm.idActual)
+        CategoriasView(vm: vm)
         .onAppear {
-            vm.scrambleActual = scrambleMostrar(
-                categoria: vm.categoriaSeleccionada)
-            vm.idActual = vm.sesionActual.id
-            vm.tiemposRecorrer = obtenerTiemposRecorrer(
-                categoria: vm.categoriaSeleccionada,
-                nombreCategoria: vm.nombreSeleccionada,
-                listaSesiones: vm.tiemposPrincipal).reversed()
-            vm.cargarSesiones()
+            vm.actualizarVista()
         }
     }
     

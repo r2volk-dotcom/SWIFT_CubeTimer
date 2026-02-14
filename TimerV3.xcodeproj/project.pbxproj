@@ -13,7 +13,6 @@
 		B61584FC2B92C6B200C20F12 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61584FB2B92C6B200C20F12 /* ContentView.swift */; };
 		B61584FE2B92C6B400C20F12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61584FD2B92C6B400C20F12 /* Assets.xcassets */; };
 		B61585012B92C6B400C20F12 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61585002B92C6B400C20F12 /* Preview Assets.xcassets */; };
-		B661C8BA2BA2698800DCC382 /* CategoriasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B661C8B92BA2698800DCC382 /* CategoriasView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,10 +23,10 @@
 		B61584FB2B92C6B200C20F12 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B61584FD2B92C6B400C20F12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B61585002B92C6B400C20F12 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B661C8B92BA2698800DCC382 /* CategoriasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriasView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		8C5871A82F403C010045EBCD /* Categorias */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Categorias; sourceTree = "<group>"; };
 		8C7739792F3DAB2800B7F833 /* ListaTiempos */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ListaTiempos; sourceTree = "<group>"; };
 		8C9F11E52F3B640100BC5C97 /* Estadisticas */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Estadisticas; sourceTree = "<group>"; };
 		8C9F11FD2F3B6A0800BC5C97 /* Funciones */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Funciones; sourceTree = "<group>"; };
@@ -48,11 +47,11 @@
 		B61584ED2B92C6B200C20F12 = {
 			isa = PBXGroup;
 			children = (
+				8C5871A82F403C010045EBCD /* Categorias */,
 				8C7739792F3DAB2800B7F833 /* ListaTiempos */,
 				8C9F12162F3B6B1500BC5C97 /* Cronometro */,
 				8C9F11FD2F3B6A0800BC5C97 /* Funciones */,
 				8C9F11E52F3B640100BC5C97 /* Estadisticas */,
-				B661C8B92BA2698800DCC382 /* CategoriasView.swift */,
 				B61584F82B92C6B200C20F12 /* TimeCuber */,
 				B61584F72B92C6B200C20F12 /* Products */,
 			);
@@ -103,6 +102,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				8C5871A82F403C010045EBCD /* Categorias */,
 				8C7739792F3DAB2800B7F833 /* ListaTiempos */,
 				8C9F11E52F3B640100BC5C97 /* Estadisticas */,
 				8C9F11FD2F3B6A0800BC5C97 /* Funciones */,
@@ -166,7 +166,6 @@
 				B61584FC2B92C6B200C20F12 /* ContentView.swift in Sources */,
 				8C7739842F3DD55F00B7F833 /* RubikAppViewModel.swift in Sources */,
 				B61584FA2B92C6B200C20F12 /* TimeCuber.swift in Sources */,
-				B661C8BA2BA2698800DCC382 /* CategoriasView.swift in Sources */,
 				8C7738F32F3D03A700B7F833 /* ModeloTiempos.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

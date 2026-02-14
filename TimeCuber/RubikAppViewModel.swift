@@ -3,13 +3,20 @@ import SwiftUI
 
 class RubikViewModel: ObservableObject {
     
-    // CAMBIO 1: De @State a @Published
     @Published var tiemposPrincipal: [Sesion] = []
     @Published var sesionActual: Sesion = Sesion(tiempos: [], nombre: "", categoria: "")
     @Published var tiemposRecorrer: [Tiempo] = []
     @Published var scrambleActual: String = ""
     @Published var idActual: UUID? = nil //id de la session actual
     @Published var ordenActual = Orden.fecha
+    
+    @Published var timerState = TimerState(
+        estaCorriendo: false,
+        estaTocando: false,
+        tiempoInicio: nil,
+        tiempoTranscurrido: 0,
+        visibilidadPromedios: false
+    )
     
     @Published var categoriaSeleccionada: String = UserDefaults.standard.string(forKey: "categoriaSeleccionada") ?? "3x3" {
         didSet {
@@ -127,20 +134,20 @@ class RubikViewModel: ObservableObject {
         }
     
     
-     func cambiarOrden(_ orden: Orden){
-         
-         ordenActual = orden
-         
-             tiemposRecorrer = ordentiemposMostrar(
-                 orden: orden,
-                 catSele: categoriaSeleccionada,
-                 nomSele: nombreSeleccionada,
-                 tPrincipal: tiemposPrincipal
-             )
-         }
+    func cambiarOrden(_ orden: Orden){
+        
+        ordenActual = orden
+        
+            tiemposRecorrer = ordentiemposMostrar(
+                orden: orden,
+                catSele: categoriaSeleccionada,
+                nomSele: nombreSeleccionada,
+                tPrincipal: tiemposPrincipal
+            )
+        }
     
     
-    func registrarNuevoTiempo(timerState: inout TimerState) {
+    func registrarNuevoTiempo() {
         
         if let inicio = timerState.tiempoInicio {
             timerState.tiempoTranscurrido = Date().timeIntervalSince(inicio)
@@ -164,10 +171,8 @@ class RubikViewModel: ObservableObject {
         }
         scrambleActual = scrambleMostrar(categoria: sesionActual.categoria)
     }
-    
-    
-    //inout significa que la función puede modificar la variable que le pasás.
-    func borrarUltimoTiempo(timerState: inout TimerState) {
+
+    func borrarUltimoTiempo() {
         
         if(obtenerTiempos(sesion: sesionActual).count != 0){
             timerState.estaCorriendo = false
@@ -199,6 +204,23 @@ class RubikViewModel: ObservableObject {
         
         }
     }
+    
+    func borrarCategoria(sesionAEliminar: Sesion){
+        if let index = tiemposPrincipal.firstIndex(where: { $0.id == sesionAEliminar.id }) {
+            tiemposPrincipal.remove(at: index)
+
+            if idActual == sesionAEliminar.id {
+                if let firstSesion = tiemposPrincipal.first {
+                    idActual = firstSesion.id
+                    nombreSeleccionada = firstSesion.nombre
+                    categoriaSeleccionada = firstSesion.categoria
+                } else {
+                    idActual = nil
+                }
+            }
+        }
+    }
+
     
 }
 
