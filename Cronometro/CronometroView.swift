@@ -59,7 +59,7 @@ struct CronometroView: View {
             
             //ESTADISTICAS (EN LA PARTE INFERIOR)
             if !vm.timerState.estaCorriendo{
-                EstadisticasCronometroView(sesionActual:vm.sesionActual)
+                EstadisticasCronometroView(vm: vm)
             }
         }
         

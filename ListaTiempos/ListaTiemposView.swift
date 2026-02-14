@@ -28,9 +28,6 @@ struct ListaTiemposView: View {
             // Esto asegura que al entrar esté actualizado
             vm.actualizarDatos(nuevosTiempos: vm.tiemposPrincipal)
         }
-        .onChange(of: vm.tiemposPrincipal) { nuevosDatos in
-            vm.actualizarDatos(nuevosTiempos: nuevosDatos)
-        }
         .confirmationDialog("Orden",
                             isPresented: $manejo,
                             titleVisibility: .visible) {

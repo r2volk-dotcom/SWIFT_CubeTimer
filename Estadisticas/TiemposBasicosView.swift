@@ -65,8 +65,3 @@ struct TiemposBasicosView: View {
 
     
 }
-
-#Preview {
-    ContentView()
-}
-

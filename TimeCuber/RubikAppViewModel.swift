@@ -224,14 +224,12 @@ class RubikViewModel: ObservableObject {
     
 }
 
-// Una pequeña ayuda para generar nuevo scramble manualmente cuando quieras
+// Funciones que antes usaba y no se ahora las usare...
 /*func nuevoScramble() {
     scrambleActual = scrambleMostrar(categoria: categoriaSeleccionada)
 }
- */
-
-
-/*
+ 
+ 
  func vistaCronometro() -> some View {
      CronometroView(sesionActual:$sesionActual,
            tiemposPrincipal: $tiemposPrincipal,
