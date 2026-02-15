@@ -19,6 +19,7 @@ struct ContentView: View {
             
             vistaCategorias()
                 .tabItem {Image(systemName: "archivebox")}
+            
         }
         .tint(.cyan)
  
@@ -43,7 +44,6 @@ struct ContentView: View {
         EstadisticasView(vm: vm)
         .onAppear {
             vm.actualizarVista()
-            
         }
     }
     

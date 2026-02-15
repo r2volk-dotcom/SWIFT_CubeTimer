@@ -15,6 +15,7 @@ struct SesionTimeView: View {
             vm.idActual = sesion.id
             vm.nombreSeleccionada = sesion.nombre
             vm.categoriaSeleccionada = sesion.categoria
+            vm.nuevoScramble()
         }) {
             HStack {
                 Text(sesion.nombre)

@@ -123,17 +123,6 @@ class RubikViewModel: ObservableObject {
         guardarSesiones()
     }
     
-    
-    func actualizarDatos(nuevosTiempos: [Sesion]) {
-            self.tiemposPrincipal = nuevosTiempos
-            self.tiemposRecorrer = obtenerTiemposRecorrer(
-                categoria: categoriaSeleccionada,
-                nombreCategoria: nombreSeleccionada,
-                listaSesiones: self.tiemposPrincipal
-            ).reversed()
-        }
-    
-    
     func cambiarOrden(_ orden: Orden){
         
         ordenActual = orden
@@ -220,50 +209,10 @@ class RubikViewModel: ObservableObject {
             }
         }
     }
+    
+    func nuevoScramble() {
+        scrambleActual = scrambleMostrar(categoria: categoriaSeleccionada)
+    }
 
     
 }
-
-// Funciones que antes usaba y no se ahora las usare...
-/*func nuevoScramble() {
-    scrambleActual = scrambleMostrar(categoria: categoriaSeleccionada)
-}
- 
- 
- func vistaCronometro() -> some View {
-     CronometroView(sesionActual:$sesionActual,
-           tiemposPrincipal: $tiemposPrincipal,
-           scrambleActual: $scrambleActual,
-           tiemposRecorrer: $tiemposRecorrer,
-           guardarSesiones: guardarSesiones
-     ).onAppear {
-         scrambleActual = scrambleMostrar(categoria: categoriaSeleccionada)
-         tiemposRecorrer = obtenerTiemposRecorrer(categoria: categoriaSeleccionada, nombreCategoria: nombreSeleccionada, listaSesiones: tiemposPrincipal).reversed()
-         sesionActual = obtenerSesionActual(categoria: categoriaSeleccionada, nombreCategoria: nombreSeleccionada, listaSesiones: tiemposPrincipal)
-         idActual = sesionActual.id
-         cargarSesiones()}
- }
-
- 
- func vistaEstadisticas() -> some View {
-     estadisticas(sesionActual: $sesionActual
-                  ,valor: $valor)
-     .onAppear {
-         sesionActual = obtenerSesionActual(categoria: categoriaSeleccionada, nombreCategoria: nombreSeleccionada, listaSesiones: tiemposPrincipal)
-         
-     }
- }
- 
- func vistaCategorias() -> some View {
-     CategoriasView(tiemposPrincipal: $tiemposPrincipal,
-                categoriaSeleccionada:$categoriaSeleccionada,
-                nombreSeleccionada:$nombreSeleccionada,
-                idActual: $idActual)
-     .onAppear {
-         scrambleActual = scrambleMostrar(categoria: categoriaSeleccionada)
-         idActual = sesionActual.id
-         tiemposRecorrer = obtenerTiemposRecorrer(categoria: categoriaSeleccionada, nombreCategoria: nombreSeleccionada, listaSesiones: tiemposPrincipal).reversed()
-         cargarSesiones()
-     }
- }
- */

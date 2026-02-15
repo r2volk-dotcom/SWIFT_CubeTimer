@@ -24,10 +24,6 @@ struct ListaTiemposView: View {
             }))
                 
             }
-        .onAppear {
-            // Esto asegura que al entrar esté actualizado
-            vm.actualizarDatos(nuevosTiempos: vm.tiemposPrincipal)
-        }
         .confirmationDialog("Orden",
                             isPresented: $manejo,
                             titleVisibility: .visible) {

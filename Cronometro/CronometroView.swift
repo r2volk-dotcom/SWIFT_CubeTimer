@@ -57,6 +57,7 @@ struct CronometroView: View {
                 registrarNuevoTiempo: { vm.registrarNuevoTiempo() },
                 formatoTiempo: formatoTiempo)
             
+            
             //ESTADISTICAS (EN LA PARTE INFERIOR)
             if !vm.timerState.estaCorriendo{
                 EstadisticasCronometroView(vm: vm)
